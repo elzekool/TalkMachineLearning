@@ -1,0 +1,6 @@
+docker-notebook/data/.*
+docker-notebook/data/MNIST_data
+docker-notebook/data/bbc-corpus
+docker-notebook/data/movielens-100k
+
+
