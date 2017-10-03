@@ -140,8 +140,38 @@ Single Value Decomposition is a matrix factorization method. Basicly what you (o
 For example, if I’ve listened to 5 Metallica songs and you’ve listened to 5 different Metallica songs, the raw user action matrix wouldn’t have any overlap so we would not be considered similar users.
 
 If we can derive the underlying tastes or preferences we could solve this problem, that is what Single Value Decomposition does. 
----
 
+---
+# Supervised Learning
+Supervised learning is different from unsupervised learning in that we have two kinds of variables:
+
+* **Target variables** These are the variables that should be the output
+* **Predictor variables** These are the observations or the variables that are mapped to the target variable
+
+Based on the type of **Target variables** we have two disctinct types of predictions:
+
+* **Regression** When the target variable is ordinal/continous we call it regression.
+* **Classification** When the target variables output discrete values we call it classification.
+
+---
+# Linear regression
+With linear regression you try to find the coefficients that describe the relation between input predictor variables and the target variable. This is done by creating the line function (intercept and slope) that limits the sum of squared errors.
+
+.width-65[![Linear regression introduction graph](images/08_estimating_coefficients.png)]
+
+Notebook: [Linear regression example with statsmodel](http://localhost:8888/notebooks/Linear%20regression%20example%20with%20statsmodel.ipynb)
+
+---
+# Decission Tree classifier
+A decission tree classifier is a classifier that uses a tree of conditions with a true or false branch for each condition. Those conditions are inferred from training.
+
+* **Advantages** of a decission tree classifier are that it can be used for ordinal and categorical data and combinations of them, their simple to understand and is unsensitive about value bias and scale differences.
+
+* **Disadvantages** are that for linear data the tree tends to get overly complex and sensitive to noice and overfitting also can happen quickly.
+
+There are different algorithms of building the tree, two common ones are **Gini impurity** and **Information gain**. Both metrics are different but the effective results are almost the same. The decision is picked where the smallest set of remaining labels remains in the largest set of remaining rows.
+
+---
 # Resources
 * https://beckernick.github.io/law-clustering/
 * https://cambridgespark.com/content/tutorials/implementing-your-own-recommender-systems-in-Python/index.html
