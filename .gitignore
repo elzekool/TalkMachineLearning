@@ -1,7 +1,9 @@
+.vscode
 docker-notebook/data/.*
 docker-notebook/data/MNIST_data
 docker-notebook/data/bbc-corpus
 docker-notebook/data/movielens-100k
 docker-notebook/data/movielens-1m
-
+docker-notebook/data/spam-data
+!docker-notebook/data/spam-data/download.sh
 

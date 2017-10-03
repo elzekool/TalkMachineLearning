@@ -5,4 +5,4 @@ realpath() {
 }
 
 ROOT_PATH=$(realpath $(dirname $0))
-docker run -d -p 5040:80 -v $ROOT_PATH:/www fnichol/uhttpd
+docker run --rm -p 5040:80 -v $ROOT_PATH:/www fnichol/uhttpd

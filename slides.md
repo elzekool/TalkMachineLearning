@@ -171,6 +171,25 @@ A decission tree classifier is a classifier that uses a tree of conditions with 
 
 There are different algorithms of building the tree, two common ones are **Gini impurity** and **Information gain**. Both metrics are different but the effective results are almost the same. The decision is picked where the smallest set of remaining labels remains in the largest set of remaining rows.
 
+Notebook: [Decission Tree Classifier for IRIS dataset](http://localhost:8888/notebooks/Decission%20Tree%20Classifier%20for%20IRIS%20dataset.ipynb)
+
+---
+# Naive Bayes classifier
+A well known classifier as it is a long time been used for classifying SPAM e-mails. The formula is:  ** P(A|B) = P(B|A) * P(A) / P(B). **
+
+* **P(A)** and **P(B)** are the probabilities of A and B, independent of each other
+* **P(A|B)**, a conditional probability, is the probability of A given that B is true
+* **P(B|A)**, is the probability of B given that A is true
+
+So for example in the case of a SPAM filter. **P(A)** is the probability of an e-mail being SPAM. **P(B)** is the probability that a word is in an e-mail. **P(B|A)** is the probability that the SPAM word is in a SPAM e-mail. All this factors can be determined by past data. With this data you can determine **P(A|B)** which gives the probability that when the SPAM word is given the e-mail is SPAM. Given that **P(B)** is the divider it makes sense, when a word is comon relative to the times it is spam the chance of being it SPAM gets smaller.
+
+Notebook: [Using Naive Bayes to classify text](http://localhost:8888/notebooks/Using%20Naive%20Bayes%20to%20classify%20text.ipynb)
+
+---
+# Neural Network and Deep Learning
+
+
+
 ---
 # Resources
 * https://beckernick.github.io/law-clustering/
@@ -178,3 +197,4 @@ There are different algorithms of building the tree, two common ones are **Gini 
 * http://blog.ethanrosenthal.com/2015/11/02/intro-to-collaborative-filtering/
 * https://beckernick.github.io/matrix-factorization-recommender/
 * http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/
+* https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal
