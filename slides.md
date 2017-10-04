@@ -186,8 +186,76 @@ So for example in the case of a SPAM filter. **P(A)** is the probability of an e
 Notebook: [Using Naive Bayes to classify text](http://localhost:8888/notebooks/Using%20Naive%20Bayes%20to%20classify%20text.ipynb)
 
 ---
-# Neural Network and Deep Learning
+# Evaluation, metrics (1)
+It is usefull to evaluate your model, in the end but also for optimizing.
 
+Which metric is usefull depends on the type of target variables. Interpeting evaluation metrics in an absolute sense is hard, therefor most common usage is in relative 
+comparison.
+
+There are a lot of metrics. Each with the own pro's and cons's. But also the metric is dependend on the target variables.
+
+* **RMSE** Root-mean-square deviation represents the sample standard deviation of the differences between predicted values and observed values. A larger error in samples has a disproportionately large effect on the output RMSE.
+
+* **MAE** Mean-absolute-error is a far more simple to understand metric. It's the mean of all absolute errors between prediction and outcome. It doesn't penetalize larger errors over small errors.
+
+The absolute values of both metrics depend on the scale of the target variables.
+
+---
+# Evaluation, metrics (2)
+
+* **Coefficient of determination** Used in linear regression it is calculated as the correlation between the observed target values and the predicted values.
+
+* **Precision and recall** commonly used in evaluating recommenders, it mesures the selected elements in the output set that are relevant (precision) against the number of items in the set from the set of relevant items (recall). Most of the time the precision increases, recall decreases. 
+
+* **Cross entropy** represents the distance (more precise bits) between the probability distribution returned as the target variable against the true label. 
+
+---
+
+# Evaluation, cross validation
+When training your model it is imporant that you don't overfit your model. **Overfitting** means that your model is good at predicting your training data but not at other data. 
+
+Therefor it is common to use  **cross validation**, to split or the data into a training set and a test set. Two common ways are:
+
+* **Simple split** A simple split just removes a given amount of samples randomly from the training set and puts them in a test set. The danger of this is that your test set is not a good representation of the distribution of the actual data.
+
+* **K-fold** To remedy this with K-fold can be used. With K-fold the dataset is split into multiple parts. The model is trained multiple times and each time a different part of the dataset is left out as test set.
+
+
+---
+# Neural Network and Deep Learning
+The concept of a neural network is based on the brains of humans and animals. A neuron in a neural network does a weighted sum of all of its inputs, adds a constant called the "bias" and then feeds the result through some non-linear activation function.
+
+Each network is different. But every network has input neurons (or input layer) and output neurons (or output layer). Layers between input and output are called hidden layers.
+
+.width-40[![Neural Network with hidden layer](images/400px-Artificial_neural_network.svg.png)]
+
+---
+# The neuron
+The neuron in a network has inputs that are variable. The weight of each input is trained togheter with the bias. The output of this is then feeded into the activation function of the neuron. 
+
+Two common activation functions are **Sigmoid** and **RELU** where the latter is more commonly used in hidden layers.
+
+.width-100[![Sigmoid and RELU](images/sigmoid_relu.png)]    
+
+---
+# Training the network
+When a neural network is created the weights and biases are randomly initialized and the network wont give any usefull predictions. Therefor it needs to be trained, two common ways to do this training are:
+
+* **Gradient Descend** This is commonly used for situations where output can be mathematicly evaluated. To do this a **loss function** is needed. The network then tries to minimize the loss. Notebook: [MNIST Demo with a simple neural network](http://localhost:8888/notebooks/MNIST%20Demo%20with%20a%20simple%20neural%20network.ipynb)
+
+* **Genetic Algorithm** This is commonly used for situations where the output cannot be mathematicly evaluated. For example when we train the network to perform a game. For each network the **fitness** is determined. The fittest networks are then kept and the rest discared. New networks are than created with random mutations based on the fitest networks. Nice example: [Machine Learning Algorithm with Flappy Bird](http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/)
+
+
+---
+# Convolutional networks
+
+
+---
+# Recurrent Neural Network
+
+
+---
+# Dropout, Learning Rate Decay
 
 
 ---
@@ -198,3 +266,6 @@ Notebook: [Using Naive Bayes to classify text](http://localhost:8888/notebooks/U
 * https://beckernick.github.io/matrix-factorization-recommender/
 * http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/
 * https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal
+* http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
+* https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/
+
