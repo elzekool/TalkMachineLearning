@@ -9,10 +9,11 @@ Welcome to my talk "Practical IoT for webdevelopers"
 
 ---
 # About me
-
 * I work at Youwe as a Magento software architect
 * I have a background in Electrical Engineering
 * I have many hobbies, all related to technology, at home I have a lasercutter, cnc-mill and 3D printer that also grab my attention
+
+.width-25[![Logo Youwe](images/youwe-logo-kleur.png)]
 
 ---
 # What is this talk about?
@@ -141,6 +142,8 @@ For example, if I’ve listened to 5 Metallica songs and you’ve listened to 5 
 
 If we can derive the underlying tastes or preferences we could solve this problem, that is what Single Value Decomposition does. 
 
+Notebook: [Movielens SVD collaborative filtering](http://localhost:8888/notebooks/Movielens%20SVD%20collaborative%20filtering.ipynb)
+
 ---
 # Supervised Learning
 Supervised learning is different from unsupervised learning in that we have two kinds of variables:
@@ -247,25 +250,53 @@ When a neural network is created the weights and biases are randomly initialized
 
 
 ---
-# Convolutional networks
+# Convolutional layers
+.width-50-r[![Convolutional layers](images/convolutional.png)]
+Normal neural network layers are fully connected layers, saying that every neuron in the first layer is connected to every neuron in the second layer. This doesn't scale well for larger images and misses the importance of locality. Convolutional layers are only connected to a specific matrix above, as shown:
 
+It is studied that our brain uses the same mechanism for our eyes. After or in between convolution layers there are often pooling layers that downsample the matrix.
 
 ---
 # Recurrent Neural Network
+In some cases, for example in speech and text recognizion, not only the current input is important but also previous input. This is where recurrent neural networks are used. In a recurrent network the output of a neuron is added as an extra input to the neuron. This way it knows from the past.
+
+.width-65[![RNN](images/rnn.jpg)]
+
+Training required **unfolding**. If a RNN neuron was trained the regular way the optimizer would not know if a change was caused by an weight/bias optimization or from the previous state. With unfolding a RNN cell is multiplied multiple times with the same weights and biases. Data is than inputed in shifting historical order.
 
 
 ---
 # Dropout, Learning Rate Decay
+.width-30-r[![Dropout](images/dropout.png)] Overfitting is a danger in every form of machine learning. Also with neural networks, more so with networks with more layers. Instead of generalizing the trends and factors, it more or less memorizes the training set. One technique to prevent this is by using dropout. With **dropout** random neurons in the network are temporary disabled while training. 
+<br><br>
 
+.width-30-l[![Learning Rate Decay](images/learning-rate-decay.png)] When a neural network is trained changes are made to weight and biases. The rate at which this happens is important. A large rate would not find the right value as it bounces over and back of the target. A very small rate would be optimal but takes a long time. By starting with a large rate and decaying the rate we overcome this issues.
 
 ---
-# Resources
+# Resources (1)
+
+Clustering:
 * https://beckernick.github.io/law-clustering/
-* https://cambridgespark.com/content/tutorials/implementing-your-own-recommender-systems-in-Python/index.html
+
+Collaborative filtering:
 * http://blog.ethanrosenthal.com/2015/11/02/intro-to-collaborative-filtering/
+* https://cambridgespark.com/content/tutorials/implementing-your-own-recommender-systems-in-Python/index.html
+
+Single Value Decomposition:
 * https://beckernick.github.io/matrix-factorization-recommender/
-* http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/
+
+---
+# Resources (2)
+
+Decission Tree classifier
 * https://www.youtube.com/playlist?list=PLOU2XLYxmsIIuiBfYad6rFYQU_jL2ryal
+
+Naive Bayes
 * http://zacstewart.com/2015/04/28/document-classification-with-scikit-learn.html
+
+Tensorflow:
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/
+* http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/
+
+
 
