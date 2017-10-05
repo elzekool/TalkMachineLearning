@@ -298,5 +298,8 @@ Tensorflow:
 * https://codelabs.developers.google.com/codelabs/cloud-tensorflow-mnist/
 * http://www.askforgametask.com/tutorial/machine-learning-algorithm-flappy-bird/
 
+---
+# Link
 
+.width-75[![https://github.com/elzekool/TalkMachineLearning](images/qr-elzekool-github.svg)]
 
