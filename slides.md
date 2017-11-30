@@ -3,17 +3,17 @@ class: center, middle, titlescreen
 # Machine Learning, a practical intro
 ## A talk by [@elzekool](https://github.com/elzekool)
 
-???
-
-Welcome to my talk "Practical IoT for webdevelopers"
-
 ---
-# About me
-* I work at Youwe as a Magento software architect
-* I have a background in Electrical Engineering
-* I have many hobbies, all related to technology, at home I have a lasercutter, cnc-mill and 3D printer that also grab my attention
+# Introduction
 
-.width-25[![Logo Youwe](images/youwe-logo-kleur.png)]
+### About me
+* I'm a Magento developer at Youwe, from our office in Groningen, the Netherlands
+* Our agency works with larger companies. Those companies have a lot of data making them ideal to work with them on things like Machine Learning
+
+### About this talk
+* It is for developers that want to start working with Machine Learning
+* It tries to explain the most important things, so when you research further you know the terms. 
+* I will publish the slides so you don't have to remember everything
 
 ---
 # What is this talk about?
@@ -44,14 +44,14 @@ The definition of Big Data is data that is to large to work with by using tradit
 
 HDFS can be compared to a file system. Data written to HDFS is split up and distributed to the different nodes. MapReduce makes that the processing is done where the data is stored. 
 
-**Map** performs filtering, sorting and data unification and is done completely independend, **Reduce** is collection and summerizing
+**Map** performs filtering, sorting and data unification and is done completely parralel, **Reduce** is collection and summerizing and is partly done in serial.
 
 .width-65[![MapReduce Workflow](images/mapreduce-workflow.png)]<br><small>http://www.glennklockwood.com/data-intensive/hadoop/overview.html</small>
 
 ---
 # Spark
 
-Hadoop's MapReduce is fast for single iteration tasks, but iterative processes are slow because all the intermediate needs to be written/distributed. Also programming Hadoop is very low level. Apache Spark has a more easy to use programming interface, keeps a result cache in memory and has a task optimizer. Apache Spark also is able to use streaming data sources and multiple languages. Spark is often used toghether with Hadoop.
+Hadoop's MapReduce is fast for single iteration tasks, but iterative processes are slow because all the intermediate data needs to be written/distributed. Also programming Hadoop is very low level. Apache Spark has a more easy to use programming interface, keeps a result cache in memory and has a task optimizer. Apache Spark also is able to use streaming data sources and multiple languages. Spark is often used toghether with Hadoop.
 
 .width-65[![Spark Ecosystem](images/apache-spark-ecosystem.png)]
 
@@ -61,11 +61,11 @@ You're here for learing something about Machine Learning, so I keep it short, bu
 
 * **Noise** It is important that you remove all the noise from data. If recording views remove your own test views. If recording temperature remove temperatures that are invalid, etc.
 
-* **Scaling** Try to rescale your data so that every input has the same scale, als remove large biases. Histograms are usefull for seeing distributions.
+* **Scaling** Try to rescale your data so that every input has the same scale, also remove large biases. Histograms are usefull for seeing distributions.
 
-* **Duplicates** Remove data that is the same or you know are highly related. For example if you record distance driven maybe you have to remove the time that it took if you are not seeking a correlation between them.
+* **Duplicates** Remove data that is the same or you know are highly related. For example if you record distance driven maybe you have to remove the time that it took, if you are not seeking a correlation between them.
 
-* **Reshape** For non-ordinal data you need to reshape the data. Some algoritms do not use ordinal relation but most of them to. A common practice is then to apply a one-hot/multiple-hot strategy.
+* **Reshape** For non-ordinal data you need to reshape the data. Some algoritms do not use ordinal relation but most of them do. A common practice is then to apply a one-hot/multiple-hot strategy.
 
 ---
 # Unsupervised/Supervised learning
@@ -80,6 +80,8 @@ Learning without prior knowledge | Use labeled data to train model
 
 **Unsupervised**: I have 100 pebbles with different sizes, create 3 groups of them.
 **Supervised**: I have 50 pebbles, I will tell you in wich group those are so you can do the rest.
+
+**Reinforcement learning** There is also reinforcement learning. It is a seperate type but the algorithms are close to that of supervised learning. 
 
 ---
 # Clustering, basis
@@ -136,7 +138,7 @@ Notebook: [Movielens Collaborative filtering example](http://localhost:8888/note
 
 ---
 # Single Value Decomposition
-Single Value Decomposition is a matrix factorization method. Basicly what you (or the system) does is find features in the user ratings and use the relations between them to make a prediction. A feature could be genre or actor but that information is not explicitly given, it is derived. A good reason why Single Value Decomposition could be usefull:
+Single Value Decomposition is a matrix factorization method. Basicly what you (or the system) does is find features in the user ratings and use the relations between them to make a prediction. A feature could be genre or actor but that information is not explicitly given, it is derived. An example why Single Value Decomposition could be usefull:
 
 For example, if I’ve listened to 5 Metallica songs and you’ve listened to 5 different Metallica songs, the raw user action matrix wouldn’t have any overlap so we would not be considered similar users.
 
@@ -144,6 +146,7 @@ If we can derive the underlying tastes or preferences we could solve this proble
 
 Notebook: [Movielens SVD collaborative filtering](http://localhost:8888/notebooks/Movielens%20SVD%20collaborative%20filtering.ipynb)
 
+**Tip:** Look at Altenate Least Squares if you have implicit data (like sales, views, etc.)
 ---
 # Supervised Learning
 Supervised learning is different from unsupervised learning in that we have two kinds of variables:
@@ -168,7 +171,7 @@ Notebook: [Linear regression example with statsmodel](http://localhost:8888/note
 # Decission Tree classifier
 A decission tree classifier is a classifier that uses a tree of conditions with a true or false branch for each condition. Those conditions are inferred from training.
 
-* **Advantages** of a decission tree classifier are that it can be used for ordinal and categorical data and combinations of them, their simple to understand and is unsensitive about value bias and scale differences.
+* **Advantages** of a decission tree classifier are that it can be used for ordinal and categorical data and combinations of them, they are simple to understand and is unsensitive about value bias and scale differences.
 
 * **Disadvantages** are that for linear data the tree tends to get overly complex and sensitive to noice and overfitting also can happen quickly.
 
@@ -190,9 +193,7 @@ Notebook: [Using Naive Bayes to classify text](http://localhost:8888/notebooks/U
 
 ---
 # Evaluation, metrics (1)
-It is usefull to evaluate your model, in the end but also for optimizing.
-
-Which metric is usefull depends on the type of target variables. Interpeting evaluation metrics in an absolute sense is hard, therefor most common usage is in relative 
+It is important to evaluate your model to get an understanding how well it is doing. Which metric is usefull depends on the type of target variables. Interpeting evaluation metrics in an absolute sense is hard, therefor most common usage is in relative 
 comparison.
 
 There are a lot of metrics. Each with the own pro's and cons's. But also the metric is dependend on the target variables.
